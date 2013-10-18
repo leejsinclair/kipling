@@ -1,34 +1,31 @@
 form(role="form")
 	.row
 		.col-md-7
-			h3 Tell me about your feature
+			h2.type About your feature
 			.form-group
 				label(for="userGroups") Users and/or groups
-				.input-group
-					input.form-control(type="text", required="true", id="userGroups", placeholder="User groups who will use the feature", ng-model="data.users", tooltip-placement="bottom", tooltip="List the users that will benefit this feature")
-					span.input-group-addon(popover-placement="bottom", popover="On the Bottom!")
+				input.form-control(type="text", required="true", id="userGroups", placeholder="User groups who will use the feature", ng-model="data.users", tooltip-placement="bottom", tooltip="List the users that will benefit this feature")
+					//span.input-group-addon(popover-placement="bottom", popover="On the Bottom!")
 						i ?
 
 				span.help-block List the users that will benefit this feature
 
 			.form-group
 				label(for="userGroups") Expected result
-				.input-group
-					input.form-control(type="text", required="true", id="userGroups", placeholder="User groups who will use the feature", ng-model="data.result", tooltip-placement="bottom", tooltip="What will this feature do? how will it look? How will the users use it?")
-					span.input-group-addon
+				input.form-control(type="text", required="true", id="userGroups", placeholder="What will this feature do?", ng-model="data.result", tooltip-placement="bottom", tooltip="What will this feature do? how will it look? How will the users use it?")
+					//span.input-group-addon
 						i ?
 				span.help-block Describe the feature, what it will do
 
 			.form-group
 				label(for="businessValue") Business value
-				.input-group
-					input.form-control(type="text", required="true", id="businessValue", placeholder="Enter business value", ng-model="data.businessValue", tooltip-placement="bottom", tooltip="Explain why it is important to your business to create this feature. You can include details such as ROI, customer engagement or satisfaction")
-					span.input-group-addon
+				input.form-control(type="text", required="true", id="businessValue", placeholder="Why build this?", ng-model="data.businessValue", tooltip-placement="bottom", tooltip="Explain why it is important to your business to create this feature. You can include details such as ROI, customer engagement or satisfaction")
+					//span.input-group-addon
 						i ?
 				span.help-block What is the business value of this ticket?
 
 		.col-md-5
-			h3 Your story
+			h2.type Your story
 			p Here is your user story. Fill in the form left to create a compelling ticket that can be understood by the geeks and the rest of us too.
 			div.progress
 				div(style="width:{{(points.total/30)*100}}%", aria-valuemax="100", aria-valuenow="{{(points.total/30)*100}}", class="progress-bar progress-bar-{{ticket.class}}")
@@ -44,4 +41,4 @@ form(role="form")
 
 			span.help-block(ng-bind="statusMessage")
 			//button.btn.btn-primary Add to trello!
-			button#copyButton.btn.btn-primary Copy story
+			//button#copyButton.btn.btn-primary Copy story

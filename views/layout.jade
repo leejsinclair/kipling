@@ -11,12 +11,9 @@ html.no-js
     title Kipling, the story teller
     meta(name="description", content="")
     meta(name="viewport", content="width=device-width")
-    // Place favicon.ico and apple-touch-icon.png in the root directory
-    
-    // build:css(.tmp) styles/main.css 
-    
-    link(rel="stylesheet", href="/stylesheets/main.css")
-    // endbuild
+    link(rel="shortcut icon", href="/images/favicon.ico")
+    link(rel="stylesheet", href="/stylesheets/kipling.css")
+    link(href='http://fonts.googleapis.com/css?family=Alex+Brush|Special+Elite', rel='stylesheet', type='text/css')
     //- build:head
   body(ng-app="kipplingApp")
     //[if lt IE 7]>
@@ -29,29 +26,19 @@ html.no-js
 
     div(class="container")
       div.header
-        ul.nav.nav-pills.pull-right
+        //ul.nav.nav-pills.pull-right
           li.active
             a(href="#") About
-        h3.text-muted Kipling
-          small 
+        h3 
+          span.cursive Kipling
+          small
             i.glyphicon.glyphicon-chevron-right
             | &nbsp;Agile Story Magic
 
       // Add your site or application content here
       div(ng-view)
 
-    script(src="/javascripts/jquery/jquery.min.js")
-    script(src="/stylesheets/bootstrap/js/bootstrap.min.js")
-    script(src="/javascripts/angular/angular.min.js")
-    script(src="/javascripts/angular/angular-route.js")
-    script(src="/javascripts/angular/ui-bootstrap-tpls-0.6.0.js")
-    
-    // build:js({.tmp,app}) scripts/scripts.js 
-    script(src="/javascripts/app.js")
-    script(src="/javascripts/controllers/main.js")
-    script(src="/javascripts/jquery/jquery.zclip.min.js")
-    // endbuild
-    //- build:body
+    script(src="/javascripts/build/kipling.min.js")
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID.
     script.
@@ -59,3 +46,7 @@ html.no-js
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src='//www.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
+
+    script(type="text/ng-template", id="/app")
+      include partials/app
+
