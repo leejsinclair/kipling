@@ -1,0 +1,144 @@
+@import "./bootstrap/less/bootstrap.less";
+@icon-font-path: "/stylesheets/fonts/";
+
+@import "../font-awesome/less/font-awesome.less";
+@FontAwesomePath: "/stylesheets/fonts";
+
+.browsehappy {
+  margin: 0.2em 0; 
+  background: #ccc; 
+  color: #000; 
+  padding: 0.2em 0; 
+}
+
+.jumbotron {
+  margin: 50px auto 0 auto;
+}
+
+html {
+  height: 100%;
+}
+
+/* Space out content a bit */
+body {
+  /*padding-top: 20px;*/
+  /*padding-bottom: 20px;*/
+  background-image: url('/images/book2_half_mini.jpg');
+  padding-top: 0;
+  height: 100%;
+}
+
+.container {
+  padding-top: 20px;
+  background-color: rgba(234,222,199,0.65);
+  min-height: 100%;
+  border-color: rgba(109,91,79, 0.7);
+  border-width: 1px;
+  border-style: solid;
+  border-top: 0;
+  border-bottom: 0;
+  -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.75);
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid rgb(109,91,79);
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  /*padding-bottom: 19px;*/
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+div.progress .caption {
+  padding-left: 10px;
+}
+
+.cursive {
+  font-family: 'Alex Brush', cursive;
+}
+
+.type {
+  font-family: 'Special Elite', cursive;
+}
+
+h3 {
+  span {
+    font-size: 2.2em;
+    line-height: 2.2em;
+  }
+  small {
+    color: #666;
+  }
+}
+
+h2.cursive {
+  font-size: 2.6em;
+  line-height: 2.6em;
+}
