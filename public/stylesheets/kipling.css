@@ -7523,11 +7523,10 @@ h2.cursive {
   padding: 0.5em;
   margin-bottom: 0.5em;
   font-family: 'Special Elite', cursive;
-  font-size: 1.1em;
+  font-size: 1.3em;
+  /*strong { color: #000; }*/
+
 }
-.paper p {
+.paper span {
   color: #666;
-}
-.paper strong {
-  color: #000;
 }

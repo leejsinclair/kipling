@@ -71,21 +71,23 @@ angular.module('kipplingApp').controller('MainCtrl', function ($scope) {
 		var combinedText = $scope.data.businessValue + $scope.data.users + $scope.data.result;
 		$scope.points.elements = 0;
 
-		if( $scope.data.businessValue!=='' ) {
+		if( $scope.data.businessValue!=='' && typeof($scope.data.businessValue)!=='undefined' ) {
 			$scope.ticket.businessValue = $scope.data.businessValue;
 			progress++;
 		} else {
 			$scope.ticket.businessValue = '[ why ]';
 		}
 
-		if( $scope.data.users!=='' ) {
+		console.log($scope.data.users);
+
+		if( $scope.data.users!=='' && typeof($scope.data.users)!=='undefined' ) {
 			$scope.ticket.users = $scope.data.users;
 			progress++;
 		} else {
 			$scope.ticket.users = '[ who ]';
 		}
 
-		if( $scope.data.result!=='' ) {
+		if( $scope.data.result!=='' && typeof($scope.data.result)!=='undefined'  ) {
 			$scope.ticket.result = $scope.data.result;
 			progress++;
 		} else {
@@ -128,6 +130,13 @@ angular.module('kipplingApp').controller('MainCtrl', function ($scope) {
 			}
 		})(combinedText.length);
 
+		if( typeof(combinedText.length) === 'undefined' || combinedText.length<20 ) {
+			$scope.points.keypresses = 0;
+			$scope.points.storyLength = 0;
+		}
+
+		console.log( combinedText.length, $scope.points.keypresses, $scope.points.elements, $scope.points.storyLength);
+
 		$scope.points.total = $scope.points.keypresses + $scope.points.elements + $scope.points.storyLength;
 
 		var percentage = ($scope.points.total/30) * 100;
@@ -140,10 +149,10 @@ angular.module('kipplingApp').controller('MainCtrl', function ($scope) {
 			$scope.progressEncouragement = 'We are off..';
 			break;
 		case (percentage<50):
-			$scope.progressEncouragement = 'Sounds good so far';
+			$scope.progressEncouragement = 'It\'s a start';
 			break;
 		case (percentage<80):
-			$scope.progressEncouragement = 'Story evanalist';
+			$scope.progressEncouragement = 'This is a story';
 			break;
 		case (percentage<90):
 			$scope.progressEncouragement = 'Just a bit more';
