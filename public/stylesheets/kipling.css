@@ -7405,7 +7405,11 @@ body {
 
   /*padding-bottom: 20px;*/
 
-  background-image: url('/images/book2_half_mini.jpg');
+  background-color: #eadec7;
+  background-image: url('/images/kipling-portait.png'), url('/images/book2_half_mini.jpg');
+  background-repeat: no-repeat;
+  background-size: auto, 100%;
+  background-position: 2% 40px, top left;
   padding-top: 0;
   height: 100%;
 }
@@ -7509,4 +7513,21 @@ h3 small {
 h2.cursive {
   font-size: 2.6em;
   line-height: 2.6em;
+}
+.paper {
+  /*
+  background-color: #FFF;
+  background-color: rgba(234,222,199,0.65);
+  */
+
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  font-family: 'Special Elite', cursive;
+  font-size: 1.1em;
+}
+.paper p {
+  color: #666;
+}
+.paper strong {
+  color: #000;
 }

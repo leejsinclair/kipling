@@ -1,44 +1,66 @@
 form(role="form")
 	.row
-		.col-md-7
+		.col-md-12
+			button.pull-right.btn.btn-primary.btn-sm(ng-click="resetPoints();data.users=random('users');data.result=random('features');data.businessValue=random('value')")
+					i.icon.icon-random
+					| &nbsp;Generate random story
+			p
+				strong Let's get Agile!
+				| &nbsp;Create amazing project tickets fast.
+
+	.row
+		.col-md-6
 			h2.type About your feature
 			.form-group
-				label(for="userGroups") Users and/or groups
-				input.form-control(type="text", required="true", id="userGroups", placeholder="User groups who will use the feature", ng-model="data.users", tooltip-placement="bottom", tooltip="List the users that will benefit this feature")
+				label(for="userGroups") As
+				input.form-control(type="text", required="true", id="userGroups", placeholder="User / groups who will use the feature", ng-model="data.users", tooltip-placement="bottom", tooltip="List the users that will benefit this feature")
 					//span.input-group-addon(popover-placement="bottom", popover="On the Bottom!")
 						i ?
 
-				span.help-block List the users that will benefit this feature
+				span.help-block Who is the feature for?
 
 			.form-group
-				label(for="userGroups") Expected result
+				//button.pull-right.btn.btn-link(ng-click="data.result=random('features')") Random
+				label(for="userGroups") I want
 				input.form-control(type="text", required="true", id="userGroups", placeholder="What will this feature do?", ng-model="data.result", tooltip-placement="bottom", tooltip="What will this feature do? how will it look? How will the users use it?")
 					//span.input-group-addon
 						i ?
-				span.help-block Describe the feature, what it will do
+				span.help-block What it will do?
 
 			.form-group
-				label(for="businessValue") Business value
+				//button.pull-right.btn.btn-link(ng-click="data.businessValue=random('value')") Random
+				label(for="businessValue") So that
 				input.form-control(type="text", required="true", id="businessValue", placeholder="Why build this?", ng-model="data.businessValue", tooltip-placement="bottom", tooltip="Explain why it is important to your business to create this feature. You can include details such as ROI, customer engagement or satisfaction")
 					//span.input-group-addon
 						i ?
-				span.help-block What is the business value of this ticket?
+				span.help-block What is the business value of this feature?
 
-		.col-md-5
+		.col-md-6
 			h2.type Your story
-			p Here is your user story. Fill in the form left to create a compelling ticket that can be understood by the geeks and the rest of us too.
-			div.progress
-				div(style="width:{{(points.total/30)*100}}%", aria-valuemax="100", aria-valuenow="{{(points.total/30)*100}}", class="progress-bar progress-bar-{{ticket.class}}")
-					span.pull-left.caption(ng-bind="progressEncouragement")
 					
-			div(id="myStory", class="alert alert-{{ticket.class}}")
+			div(id="myStory", class="paper paper-{{ticket.class}}")
 				p As 
 					strong(ng-bind="ticket.users")
 					| &nbsp;I want&nbsp;
 					strong(ng-bind="ticket.result")
 					| &nbsp;so that&nbsp;
 					strong(ng-bind="ticket.businessValue")
+					| .
+
+			div.progress
+				div(style="width:{{(points.total/30)*100}}%", aria-valuemax="100", aria-valuenow="{{(points.total/30)*100}}", class="progress-bar progress-bar-{{ticket.class}}")
+					span.pull-left.caption(ng-bind="progressEncouragement")
 
 			span.help-block(ng-bind="statusMessage")
+
+			//p Here is your user story. Fill in the form left to create a compelling ticket that can be understood by the geeks and the rest of us too.
+
+	.row
+		.col-md-12
+			hr
+			h2.type 
+				| Help build Kipling
+			iframe(id="JotFormIFrame", onload="window.parent.scrollTo(0,0)", allowtransparency="true", src="http://form.jotform.co/form/32902911560853", frameborder="0", style="width:100%; height:465px; border:none;", scrolling="no")
+			//<script type="text/javascript">window.handleIFrameMessage = function(e) {var args = e.data.split(":");var iframe = document.getElementById("JotFormIFrame");if (!iframe)return;switch (args[0]) {case "scrollIntoView":iframe.scrollIntoView();break;case "setHeight":iframe.style.height = args[1] + "px";break;}};if (window.addEventListener) {window.addEventListener("message", handleIFrameMessage, false);} else if (window.attachEvent) {window.attachEvent("onmessage", handleIFrameMessage);}</script>
 			//button.btn.btn-primary Add to trello!
 			//button#copyButton.btn.btn-primary Copy story

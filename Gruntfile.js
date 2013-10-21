@@ -53,7 +53,8 @@ module.exports = function(grunt) {
     'uglify': {
       'options': {
         'banner': '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-        'mangle': false
+        'mangle': false,
+        'beautify': true
       },
       'build': {
         'src': [ '<%= folders.js %>/src/jquery/{,*/}*.js', '<%= folders.js %>/src/bootstrap/{,*/}*.js', '<%= folders.js %>/src/angular/angular.js', '<%= folders.js %>/src/angular/lib/{,*/}*.js', '<%= folders.js %>/src/app.js', '<%= folders.js %>/src/controllers/{,*/}*.js' ],
