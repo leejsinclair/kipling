@@ -7530,3 +7530,6 @@ h2.cursive {
 .paper span {
   color: #666;
 }
+.modal-show {
+  display: block;
+}

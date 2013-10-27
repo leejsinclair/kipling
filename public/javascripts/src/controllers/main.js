@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('kipplingApp').controller('MainCtrl', function ($scope) {
+angular.module('kipplingApp').controller('MainCtrl', [ '$scope', '$modal', function ($scope, $modal) {
 	$scope.data = {
 		'businessValue': '',
 		'users': '',
-		'result': ''
+		'result': '',
+		'videoDisplayed': false
 	};
 
 	$scope.ticket = {
@@ -66,6 +67,14 @@ angular.module('kipplingApp').controller('MainCtrl', function ($scope) {
 		return $scope.examples[name][rnd];
 	};
 
+	$scope.showVideo	= function() {
+		$modal.open({
+			'windowClass': 'modal-show',
+			'templateUrl': 'videoContent.html',
+			'controller': 'ModalSimpleCtrl'
+		});
+	};
+
 	$scope.$watch( 'data', function( /*newValue*/ ){
 		var progress = 0;
 		var combinedText = $scope.data.businessValue + $scope.data.users + $scope.data.result;
@@ -87,7 +96,7 @@ angular.module('kipplingApp').controller('MainCtrl', function ($scope) {
 			$scope.ticket.users = '[ who ]';
 		}
 
-		if( $scope.data.result!=='' && typeof($scope.data.result)!=='undefined'  ) {
+		if( $scope.data.result!=='' && typeof($scope.data.result)!=='undefined'	) {
 			$scope.ticket.result = $scope.data.result;
 			progress++;
 		} else {
@@ -166,18 +175,28 @@ angular.module('kipplingApp').controller('MainCtrl', function ($scope) {
 
 	/*
 	$(document).ready( function(){
-	  $('#copyButton').zclip({
-	    'path':'/swf/ZeroClipboard.swf',
-	    'copy':$('#myStory').text(),
-	    'afterCopy': function() {
+		$('#copyButton').zclip({
+		'path':'/swf/ZeroClipboard.swf',
+		'copy':$('#myStory').text(),
+		'afterCopy': function() {
 		$scope.statusMessage = 'Coppied to clipboard';
 		$scope.$apply();
 		setTimeout( function(){
 			$scope.statusMessage = '';
 			$scope.$apply();
 		}, 5000)
-	    }
-	  });
+		}
+		});
 	});
 	*/
-});
+}]);
+
+var ModalSimpleCtrl = function ($scope, $modalInstance) {
+	$scope.ok = function () {
+		$modalInstance.close();
+	};
+
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+};

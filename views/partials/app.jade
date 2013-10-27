@@ -1,6 +1,14 @@
 form(role="form")
+	//div(collapse="data.videoDisplayed")
+		p Hello
+		iframe(width="640", height="360", src="//www.youtube.com/embed/LGeDZmrWwsw?rel=0", frameborder="0", allowfullscreen)
+
 	.row
 		.col-md-12
+			button.pull-right.btn.btn-primary.btn-sm(ng-click="showVideo()", type="button")
+					i.icon.icon-facetime-video
+					| &nbsp;User Stories?
+			span.pull-right &nbsp;
 			button.pull-right.btn.btn-primary.btn-sm(ng-click="resetPoints();data.users=random('users');data.result=random('features');data.businessValue=random('value')")
 					i.icon.icon-random
 					| &nbsp;Generate random story
@@ -65,3 +73,15 @@ form(role="form")
 			//<script type="text/javascript">window.handleIFrameMessage = function(e) {var args = e.data.split(":");var iframe = document.getElementById("JotFormIFrame");if (!iframe)return;switch (args[0]) {case "scrollIntoView":iframe.scrollIntoView();break;case "setHeight":iframe.style.height = args[1] + "px";break;}};if (window.addEventListener) {window.addEventListener("message", handleIFrameMessage, false);} else if (window.attachEvent) {window.attachEvent("onmessage", handleIFrameMessage);}</script>
 			//button.btn.btn-primary Add to trello!
 			//button#copyButton.btn.btn-primary Copy story
+
+script(type="text/ng-template", id="videoContent.html")
+	.modal.modal-show 
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(ng-click="cancel()") &times;
+					h3 A fun video that explains Agile stories
+				div.text-center
+					iframe(width="560", height="315", src="//www.youtube.com/embed/LGeDZmrWwsw?rel=0", frameborder="0", allowfullscreen)
+				.modal-footer
+					button.btn.btn-primary(ng-click='ok()') OK, got it!
